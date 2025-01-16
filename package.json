@@ -5,4 +5,11 @@
   "scripts": {
     "start": "node app.js"
   },
+  "name": "basic-nodejs",
+  "version": "1.0.0",
+  "main": "app.js",
+  "devDependencies": {},
+  "author": "Amayash",
+  "license": "MIT",
+  "description": "CI/CD pipeline using CircleCI for a sample React project."
 }
