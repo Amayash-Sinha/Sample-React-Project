@@ -1,105 +1,55 @@
-# A Sample Node.js Website
+# Snap Shot [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=See%20this%20react%20example&url=https://yog9.github.io/SnapShot/&hashtags=react,context-api,freecodecamp,developers)
 
-This is a sample basic Node.js website using plain HTML files and the built in http and fs modules.
+[![Build Status](https://travis-ci.org/Yog9/SnapShot.svg?branch=master)](https://travis-ci.org/Yog9/SnapShot)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![HitCount](http://hits.dwyl.com/Yog9/SnapShot.svg)](http://hits.dwyl.com/Yog9/SnapShot)
 
-This tutorial will walk you through the creation of a very basic website using only Node.js built in modules. Follow these steps to create a Node.js website:
+[Demo of Snap Shot](https://yog9.github.io/SnapShot/)
 
-## Steps
+![](/snapscout.png)
 
-1. Create a folder for your Node.js project.
-2. Create a home page HTML and call it `index.html`. Add the required HTML tags and some basic content in the `index.html` file. 
-3. Create a second file and for now, call it `another-page.html`. Add the required HTML tags and some basic content in the `another-page.html` file.
-4. Add a link in the `index.html` page to `another-page.html`. And add a link in the `another-page.html` to `index.html`. This will allow for easy testing of pages.
-5. Create a new file called `app.js`. 
-6. In `app.js` import the required modules:
+### Summary
 
-      ```js
-      var http = require('http');
-      var url = require('url');
-      var fs = require('fs');
-      ```
+Snap Shot is a gallery created using React,React Hooks, React Router and Context API. The Routes were setup for four default pages and a search page. Also the images were displayed using the Flickr API and axios to fetch data.
 
-7. Create an http server:
+### Motivation
 
-      ```js
-      http.createServer(function (req, res) {
-      }).listen(8080);
-      ```
+The purpose of this project was to get familiar with React Hooks and Context API.
 
-      This will start a web server. The server is available to test by opening a browser and using the URL `http://localhost:8080/index.html`.
+### Getting Started
 
-8. Inside the `createServer` function add code to fetch the current URL:
-      
-      ```js
-      var q = url.parse(req.url, true);
-      var filename = "." + q.pathname;
-      ```
-   
-9. Inside the `createServer` function, after the the previous lines of code, add code to load the appropriate HTML file based on the URL. For example the URL `http://localhost:8080/index.html` will load the `index.html` file.
-      
-      ```js
-      fs.readFile(filename, function(err, data) {
-        res.writeHead(200, {'Content-Type': 'text/html'});
-        res.write(data);
-        return res.end();
-      });
-      ```
+Click the demo link or clone/download the repository on your local machine.
+Create a config.js file in api folder inside src folders. In config.js file write
+`export const apiKey = "YOUR_FLIKR_API_KEY";`
 
-10. Inside the `readFile` function, add code that will display an error message in case the requested URL does not match an exsting file:
-      
-      ```js 
-      if (err) {
-        res.writeHead(404, {'Content-Type': 'text/html'});
-        return res.end("404 Not Found");
-      } 
-      ```
+##### Install dependencies
 
-11. To test your Node.js website, open up a terminal, use `cd` to navigate to your project folder, and use `node app.js` to start your file. Then open a browser and visit the URL `http://localhost:8080/index.html`.
+`yarn install`
 
-## Final Code
+##### Run Snap Shot from the root directory.
 
-Your final code in `app.js` should look like this:
+`yarn start`
 
-```js
-var http = require('http');
-var url = require('url');
-var fs = require('fs');
+### Built With
 
-http.createServer(function (req, res) {
+- React js
+- React Router
+- React Hooks
+- Context API
+- Flickr API
 
-  var q = url.parse(req.url, true);
+### Features
 
-  var filename = "." + q.pathname;
+**1. Responsive Design.**
 
-  fs.readFile(filename, function(err, data) {
+**2. Search functionality added to search photos from API.**
 
-    if (err) {
+### Coming Soon
 
-      res.writeHead(404, {'Content-Type': 'text/html'});
-      return res.end("404 Not Found");
+- [ ] Cypress E2E Tests
 
-    } 
+### Contributing
 
-    res.writeHead(200, {'Content-Type': 'text/html'});
-    res.write(data);
-    return res.end();
+Everyone is welcomed to contribute to this project. You can contribute either by submitting bugs or suggesting improvements by opening an issue on GitHub. Please see the [CONTRIBUTING](CONTRIBUTING.md) guidelines for more information.
 
-  });
-
-}).listen(8080);
-```
-
-> Full tutorial URL:  
-> https://codeadam.ca/learning/nodejs-website.html
-
-***
-
-## Repo Resources
-
-* [Visual Studio Code](https://code.visualstudio.com/)
-* [Node.js](https://nodejs.org/en/)
-
-<a href="https://codeadam.ca">
-<img src="https://codeadam.ca/images/code-block.png" width="100">
-</a>
-
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
