@@ -27,4 +27,3 @@ workflows:
     jobs:
       - build_tests
       - build_docker_image
-      
