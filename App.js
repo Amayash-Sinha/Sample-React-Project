@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 
 function App() {
   return (
@@ -22,6 +21,7 @@ function App() {
             <li>Mobile App Development</li>
             <li>AI Integration</li>
           </ul>
+        </section>
       </main>
     </div>
   );
